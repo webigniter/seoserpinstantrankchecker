@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css" type="text/css"/>
+	<style>
+		#grid {
+			border-collapse:collapse;
+		}
+		th {
+			background-color:#ddd;
+			white-space:nowrap;
+			border:1px solid black;
+			padding:3px;
+			font-weight:normal;
+		}
+		td {
+			padding:2px;
+			text-align:center;
+			border:1px solid black;
+		}
+		td.corner {
+			border-top:0px;
+			border-left:0px;
+		}
+		.good {
+			background-color:#00aF4F;
+			color:white;
+		}
+		.fair {
+			background-color:#91D04F;
+		}
+		.bad {
+			background-color:#D7E4BB;
+		}
+	</style>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/pop.js"></script>
+	<script type="text/javascript" src="js/grid.js"></script>
+</head>
+
+<body>
+
+	<h3>SEO SERP - Results grid</h3>
+	<p style="color:#666;">You can copy this table to GoogleDocs or Excel : Press CTRL-A , CTRL-C then go to the spreadsheet and paste. (colors will be lost in the process with GoogleDocs, sorry)</p>
+	<p>
+	Show queries fetched
+	&nbsp;<select id='time' name='time' ><option value='today'>today</option><option value='anytime'>any time</option></select> and
+	&nbsp;<select id='rank' name='rank' ><option value='any'>for any SERP position</option><option value='1-10'>only ranking 1 to 10</option></select>
+	&nbsp;<input id="grid_process" type='submit' class='xbutton' value='view' />
+	</p>
+	<div id="div_grid">
+	</div>
+
+</body>
+
+</html>

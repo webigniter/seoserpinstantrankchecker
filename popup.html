@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class='popup'>
+  <head>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/pop.js"></script>
+  </head>
+
+<body>
+
+	<div id='header'>
+		SEO SERP | INSTANT RANK CHECKER<span class='authored'> rebirth by ...<img src='gfx/mini_close14.png' id='close' title='close'>
+		<img src='gfx/mini_info14.png' id='info' title='home page'></span>
+	</div>
+
+	<div class='bar'>
+		<span class='barbutton on' id='new_search'>new search</span>
+		<span class='barbutton' id='list_results'>results</span>
+		<span class='barbutton' id='list_queries'>queries</span>
+		<span class='barbutton' id='show_tips'>options, export & tips</span>
+	</div>
+
+	<div id='search_panel' class='panel'>
+		<table cellpadding=0 cellspacing=2 id='filter'><tr>
+			<td>
+				Keyword to search:<br/>
+				<input id="query" type="text" value='' tabindex='1' />
+			</td>
+			<td>
+				Search engine:<br/>
+				<select id='se' name='se' tabindex='2'>
+					<option value='www.google.com'>google.com</option>
+					<option value='www.google.be'>google.be</option>
+					<option value='www.google.fr'>google.fr</option>
+					<option value='www.google.com.by'>google.com.by</option>
+					<option value='www.google.com.au'>google.com.au</option>
+					<option value='www.google.com.lb'>google.com.lb</option>
+					<option value='www.google.com.br'>google.com.br</option>
+					<option value='www.google.com.sv'>google.com.sv</option>
+					<option value='www.google.com.tr'>google.com.tr</option>
+					<option value='www.google.com.tw'>google.com.tw</option>
+					<option value='www.google.com.ua'>google.com.ua</option>
+					<option value='www.google.com.vn'>google.com.vn</option>
+					<option value='www.google.co.id'>google.co.id</option>
+					<option value='www.google.co.il'>google.co.il</option>
+					<option value='www.google.co.in'>google.co.in</option>
+					<option value='www.google.co.jp'>google.co.jp</option>
+					<option value='www.google.co.th '>google.co.th</option>
+					<option value='www.google.co.uk'>google.co.uk</option>
+					<option value='www.google.co.za'>google.co.za</option>
+					<option value='www.google.ae'>google.ae</option>
+					<option value='www.google.ca'>google.ca</option>
+					<option value='www.google.ch'>google.ch</option>
+					<option value='www.google.cl'>google.cl</option>
+					<option value='www.google.cn'>google.cn</option>
+					<option value='www.google.de'>google.de</option>
+					<option value='www.google.dk'>google.dk</option>
+					<option value='www.google.es'>google.es</option>
+					<option value='www.google.gr'>google.gr</option>
+					<option value='www.google.hu'>google.hu</option>
+					<option value='www.google.ie'>google.ie</option>
+					<option value='www.google.it'>google.it</option>
+					<option value='www.google.nl'>google.nl</option>
+					<option value='www.google.no'>google.no</option>
+					<option value='www.google.pl'>google.pl</option>
+					<option value='www.google.ro'>google.ro</option>
+					<option value='www.google.ru'>google.ru</option>
+					<option value='www.google.se'>google.se</option>
+					<option value='www.google.sk'>google.sk</option>
+				</select>
+			</td>
+			<td>
+				<br/>
+				<input id="popup_process" type='submit' class='xbutton' tabindex='4' value='submit' />
+			</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					Websites: (use commas to separate multiple sites)<br/>
+					<input id="site" type="text" value="" tabindex='3' />
+				</td>
+			</tr>
+		</table>
+
+		<div id="resultDiv"></div>
+	</div>
+
+	<div id="stats_panel" class='panel'>
+		<div style="text-align:right">
+			keyword:
+			<input id="keywordfilter_pageslist" type="text" value='' style="width:100px; margin-right:10px;" />
+			site:
+			<input id="sitefilter_pageslist" type="text" value='' style="width:100px;" />
+		</div>
+		<div id="pagesList">
+		</div>
+	</div>
+
+	<div id="queries_panel" class='panel'>
+		<div style="text-align:right">
+			filter <input id="filter_queries" type="text" value='' style="width:100px" />
+		</div>
+		<div id="queriesList">
+		</div>
+	</div>
+
+	<div id="tips_panel" class='panel'>
+		<b>Options </b> : <br/>
+		<ul>
+			<li>SafeSearch : <input type="radio" name="safesearch" value="off" disabled checked>OFF - <input type="radio" name="safesearch" value="on" disabled>ON</li>
+		</ul>
+		<b>Export </b> : <br/>
+		<ul>
+			<li>
+				<a href='grid.htm' target="blank" class="active">HTML grid</a>
+			</li>
+			<li><span id="export_csv"><b class="active">Export to CSV</b></span>
+				<div id="copyExport"><textarea></textarea></div>
+			</li>
+		</ul>
+		<b>Tips </b> : <br/>
+		<ul>
+			<li>Hover the results to see the full address</li>
+			<li>CTRL-click or mid-mouse-button click to open the result sites without closing SEO SERP</li>
+			<li>More info on this new extension? <a href='https://chrome.google.com/extensions/detail/ppodjebdnlnpkopbegapnmlpajdphgea' target='_blank'></a></li>
+			<li>You can also donate to the original Author Andrea Doimo <a href="http://www.omiod.com/about/">
+			<li>(original extension) <a href='https://chrome.google.com/extensions/detail/ofoaoaloeipdofknnaapbmdddddioklg' target='_blank'>Give it five stars!</a> :-)</li>
+			<li>Use <a href='https://chrome.google.com/extensions/detail/ibkclpciafdglkjkcibmohobjkcfkaef' target='_blank'>META SEO inspector</a> extension to inspect the best ranking sites</li>
+			<li>another interesting extension <a href="https://chrome.google.com/webstore/detail/serptrends-seo-extension/nedmifdnblopopbcmdcgflboaclchebg">SERPTrends SEO Extension</a>
+		</ul>
+
+	</div>
+
+</body></html>
