@@ -38,7 +38,7 @@ function loadItemsList(tx, rs) {
             sites[row.url] = true;
         }
     } else {
-        console.log("Please search some keywords");
+        //console.log("Please search some keywords");
     }
 
     function sortObject(o) {

@@ -1,4 +1,3 @@
-var bg = chrome.extension.getBackgroundPage();
 
 function init() {
 
@@ -34,12 +33,6 @@ function init() {
         $("#export_csv").html("loading...");
         chrome.extension.getBackgroundPage().lk.webdb.getItemsList(q, s, loadItemsExport, true);
 
-        //var txt="";
-        //txt="test";
-        //BuiltBlob = new BlobBuilder("");
-        //BuiltBlob.append( txt );
-        //BlobToSave = BuiltBlob.getBlob();
-        //chrome.tabs.create({'url': createObjectURL(BlobToSave), 'selected': false});
     });
 
     $("#close").click(function() {
@@ -103,12 +96,6 @@ function addHandlers() {
 
 }
 
-// ???
-function queryDetails(query) {
-
-    chrome.extension.getBackgroundPage().lk.webdb.getItemsList(query, "", loadItemsList);
-
-}
 
 function setSearch(query) {
 

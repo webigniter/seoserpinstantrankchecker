@@ -1,13 +1,13 @@
 {
     "manifest_version": 2,
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_security_policy": "script-src 'self'; object-src 'self';",
     "background": {
         "page": "bg.htm",
         "persistent": true
     },
     "browser_action": {
         "default_icon": "gfx/icon19.png",
-        "name": "SEO SERP",
+        "name": "SEO SERP | INSTANT RANK CHECKER",
         "default_popup": "popup.html",
         "permissions": ["background"]
     },
@@ -19,6 +19,6 @@
         "48": "gfx/icon48.png"
     },
     "name": "SEO SERP | INSTANT RANK CHECKER",
-    "permissions": ["http://*/*", "https://*/*", "tabs", "chrome://favicon/", "unlimitedStorage", "idle", "activeTab", "background"],
-    "version": "0.15.1"
+    "permissions": ["http://*/*", "https://*/*", "tabs", "chrome://favicon/", "unlimitedStorage", "idle", "activeTab", "background","contextMenus"],
+    "version": "0.15.3"
 }

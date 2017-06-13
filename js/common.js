@@ -1,4 +1,7 @@
- var ver = "0.14.4"
+ var ver = "0.15.2";
+
+ chrome.contextMenus.create({title:"Search in SEO SERP: '%s'",contexts: ["selection"], "onclick": onSEORequest});
+
  if (localStorage["installed"] == null) {
      localStorage["installed"] = ver;
      // installed
@@ -22,3 +25,17 @@
  function isoDate(d) {
      return d.getFullYear() + "-" + pad((d.getMonth() + 1), 2) + "-" + pad(d.getDate(), 2);
  }
+
+//copy selected text as default keywords request
+function onSEORequest(info, tab) {
+     $("#query").val(info.selectionText);
+     chrome.extension.getURL("popup.html");
+    chrome.extension.getBackgroundPage().myURL;
+     chrome.tabs.query({
+        active: true,
+        currentWindow: true
+        }, function(tabs) {
+            var tab = tabs[0];
+            var url = tab.url;
+    });
+};

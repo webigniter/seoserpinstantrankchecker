@@ -120,7 +120,7 @@ select {
 	cursor:default;
 }
 
-input[type='text'] , textarea, {
+input[type='text'] , textarea {
 	border:1px solid #CD172D;
 	-webkit-border-radius: 2px;
 	padding:3px;

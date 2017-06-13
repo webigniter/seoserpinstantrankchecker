@@ -22,8 +22,7 @@
     }
 
     lk.webdb.onSuccess = function(tx, r) {
-        // ?
-        console.log("success");
+        //console.log("success");
     }
 
     lk.webdb.addItem = function(engine, query, url, position) {

@@ -1,10 +1,7 @@
-var responceDiv;
-var resultDiv;
-
-//
+var responseDiv;
 
 function getSearchResults(query, site, se, callback) {
-    
+
     siteurl = site;
     var req = false;
     if (window.XMLHttpRequest) {
@@ -44,7 +41,7 @@ function getSearchResults(query, site, se, callback) {
 
     };
 
-    req.open('GET', 'http://' + se + '/search?q=' + query + '&num=100&as_qdr=all&safe=off&pws=0', true);
+    req.open('GET', 'https://' + se + '/search?q=' + query + '&num=100&as_qdr=all&safe=off&pws=0', true);
     req.send(null);
 
 }
@@ -52,17 +49,17 @@ function getSearchResults(query, site, se, callback) {
 var temporaryContainer = document.createElement('div');
 
 function insertResultsInPage(response) {
-    
+
     temporaryContainer.innerHTML = response;
     var scripts = temporaryContainer.getElementsByTagName('script');
     var i = scripts.length;
     while (i--) {
         scripts[i].parentNode.removeChild(scripts[i]);
     }
-    
+
     response = temporaryContainer.innerHTML;
     temporaryContainer.innerHTML = '';
-    
+
     response = response.replace(/onclick=/gi, 'on-click');
     response = response.replace(/onmousemove=/gi, 'on-mousemove');
     response = response.replace(/onmousedown=/gi, 'on-mousedown');
@@ -74,14 +71,14 @@ function insertResultsInPage(response) {
     response = response.replace(/onload=/gi, 'on-load');
 
     response = '<div>' + response + '</div>';
-    responceDiv = $( response );
+    responseDiv = $( response );
 
 }
 
 function getDomain(url) {
 
     if ( url.indexOf('https://') === 0 ) {
-    
+
         url = url.replace(/https:\/\//, "");
 
     } else {
@@ -95,8 +92,8 @@ function getDomain(url) {
 
 function getSERP(query, se) {
 
-    r = responceDiv.find("li[id=''].g h3");
-    r = responceDiv.find("div.g h3");
+    r = responseDiv.find("li[id=''].g h3");
+    r = responseDiv.find("div.g h3");
 
     out = "<b>SERP rankings</b> for keyword <b><a href='http://" + se + "/search?q=" + query + "&num=100&as_qdr=all&safe=off' target='_blank' title='view result page'>" + query + "</a></b></br>";
     out += "<table cellspacing=0 cellpadding=0 id='r'>";
@@ -171,7 +168,7 @@ function getSERP(query, se) {
     if (nomatchlist != "") out += "<br/><br/><b>Unmatched top results</b> : <small>(consider adding them to your websites list)</small><br/><table cellspacing=0 cellpadding=0 id='r'>" + nomatchlist + "</table>";
 
     out += "<br/><b>Adwords</b><br/>";
-    r_ads = responceDiv.find(".ads-ad");
+    r_ads = responseDiv.find(".ads-ad");
     if (r_ads.length == 0) {
         out += "none";
     } else {
@@ -182,10 +179,11 @@ function getSERP(query, se) {
         r_ads.each(function() {
 
             url = $(this).children("h3:eq(0)").children("a:eq(1)").attr("href");
+            //TODO
             urlp = url.split("http://");
 //            console.log(urlp[0]);
 //            urlp = urlp[1].split("/");
-            
+
             try {
                 if ( urlp[1] === undefined ) {
                     urlp = urlp[0].split("/");
@@ -222,6 +220,7 @@ function getSERP(query, se) {
 
 function init() {
     initdb(null);
+    // add contextMenu
 
     // cleanup old format dates
 
@@ -231,12 +230,12 @@ function init() {
         if (rs.rows.length > 0) {
             for (var i = 0; i < rs.rows.length; i++) {
                 row = rs.rows.item(i);
-                console.log(row.ID + "," + row.day);
+               //console.log(row.ID + "," + row.day);
                 var date = new Date(Date.parse(row.day));
                 lk.webdb.query("update items set day='" + date.getFullYear() + "-" + pad((date.getMonth() + 1), 2) + "-" + pad(date.getDate(), 2) + "' where id=" + row.ID, null);
             }
         } else {
-            console.log("empty");
+            //consoleconsole.log("empty");
         }
     }
 
